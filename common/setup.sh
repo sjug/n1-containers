@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install prereqs
-dnf install -y iproute iputils ncurses openssh-server passwd procps-ng tmux
+dnf install -y iproute iputils ncurses openssh-clients openssh-server passwd procps-ng tmux
 
 key_type_list=(rsa ecdsa ed25519)
 
