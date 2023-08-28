@@ -1,0 +1,10 @@
+FROM quay.io/centos/centos:stream9
+
+RUN dnf install -y bash-completion iproute iputils ncurses openssh-server passwd procps-ng tmux
+
+WORKDIR /root/
+RUN echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMQCKsZWhBDdn+bjChRthRkSrL6DqJhh/TmcD8B19taR jugs@big" > /root/.ssh/authorized_keys && chmod 600 /root/.ssh/authorized_keys
+RUN mkdir -p /etc/systemd/system/sshd.service.d && \
+    echo -e "[Service]\nEnvironment=\"LD_PRELOAD=\"" > /etc/systemd/system/sshd.service.d/override.conf
+RUN echo "Port 2222" > /etc/ssh/sshd_config.d/10-port.conf && \
+    systemctl enable sshd.service
