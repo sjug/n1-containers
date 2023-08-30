@@ -1,7 +1,12 @@
 #!/bin/bash
 
 # Install prereqs
-dnf install -y iproute iputils ncurses openssh-clients openssh-server passwd procps-ng tmux
+dnf install -y bc dnf-plugins-core gmp gmp-devel iproute iputils libevent-devel ncurses openssh-clients openssh-server passwd procps-ng rsync sysstat tmux
+dnf config-manager --set-enabled crb
+dnf install -y epel-release epel-next-release
+
+# Need report generation deps
+
 
 key_type_list=(rsa ecdsa ed25519)
 
