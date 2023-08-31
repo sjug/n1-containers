@@ -1,12 +1,15 @@
 #!/bin/bash
 
 # Install prereqs
-dnf install -y bc dnf-plugins-core gmp gmp-devel iproute iputils libevent-devel ncurses openssh-clients openssh-server passwd procps-ng rsync sysstat tmux
+dnf install -y bc dnf-plugins-core gmp gmp-devel iproute iputils libevent-devel ncurses numactl openssh-clients openssh-server passwd procps-ng rsync sysstat tmux
 dnf config-manager --set-enabled crb
 dnf install -y epel-release epel-next-release
-
 # Need report generation deps
 
+# Get OpenOnload scripts
+curl -Lo https://github.com/Xilinx-CNS/onload/archive/refs/tags/v8.1.1.tar.gz onload.tar.gz
+tar xvf onload.tar.gz && rm onload.tar.gz
+cp onload-*/scripts/* /usr/local/bin
 
 key_type_list=(rsa ecdsa ed25519)
 
