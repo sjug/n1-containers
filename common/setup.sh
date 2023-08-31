@@ -7,7 +7,7 @@ dnf install -y epel-release epel-next-release
 # Need report generation deps
 
 # Get OpenOnload scripts
-curl -Lo https://github.com/Xilinx-CNS/onload/archive/refs/tags/v8.1.1.tar.gz onload.tar.gz
+curl -L https://github.com/Xilinx-CNS/onload/archive/refs/tags/v8.1.1.tar.gz -o onload.tar.gz
 tar xvf onload.tar.gz && rm onload.tar.gz
 cp onload-*/scripts/* /usr/local/bin
 
