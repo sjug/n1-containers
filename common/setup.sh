@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install prereqs
-dnf install -y bc dnf-plugins-core gmp gmp-devel iproute iputils libevent-devel ncurses numactl openssh-clients openssh-server passwd procps-ng rsync sysstat tmux
+dnf install -y bc dnf-plugins-core ethtool gmp gmp-devel iproute iputils kernel-tools libevent-devel ncurses numactl openssh-clients openssh-server passwd procps-ng rsync sysstat tmux
 dnf config-manager --set-enabled crb
 dnf install -y epel-release epel-next-release
 # Need report generation deps
