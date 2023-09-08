@@ -1,10 +1,24 @@
 #!/bin/bash
 
-# Install prereqs
-dnf install -y bc dnf-plugins-core ethtool gmp gmp-devel iproute iputils kernel-tools kmod libevent-devel ncurses numactl openssh-clients openssh-server passwd procps-ng rsync sysstat tmux
-dnf config-manager --set-enabled crb
-dnf install -y epel-release epel-next-release
-# Need report generation deps
+install_prereqs() {
+  dnf install -y bc dnf-plugins-core ethtool gcc git gmp gmp-devel iproute iputils kernel-tools kmod libevent-devel ncurses numactl openssh-clients openssh-server passwd procps-ng rsync sysstat tmux
+  dnf config-manager --set-enabled crb
+  dnf install -y epel-release epel-next-release
+  # Need report generation deps
+}
+
+install_sysjitter() {
+  local DIR_NAME="cns-sysjitter"
+  git clone https://github.com/Xilinx-CNS/cns-sysjitter.git
+  cd ${DIR_NAME}
+  make
+  mv -v sysjitter /usr/local/bin
+  cd ..
+  rm -r ${DIR_NAME}
+}
+
+install_prereqs
+install_sysjitter
 
 # Get OpenOnload scripts
 curl -L https://github.com/Xilinx-CNS/onload/archive/refs/tags/v8.1.1.tar.gz -o onload.tar.gz
