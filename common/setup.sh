@@ -1,7 +1,12 @@
 #!/bin/bash
+#
+
+SFNETTEST_LOCATION=https://github.com/Xilinx-CNS/cns-sfnettest/archive/refs/tags/sfnettest-1.6.0-rc1.tar.gz
+SFNETTEST_NAME=cns-sfnettest
+SFNETTEST_ARCHIVE=${SFNETTEST_NAME}.tar.gz
 
 install_prereqs() {
-  dnf install -y bc dnf-plugins-core ethtool gcc git gmp gmp-devel iproute iputils kernel-tools kmod libevent-devel ncurses numactl openssh-clients openssh-server passwd procps-ng rsync sysstat tmux
+  dnf install -y bc dnf-plugins-core ethtool findutils gcc git gmp gmp-devel iproute iputils kernel-tools kmod libevent-devel make nc ncurses net-tools numactl openssh-clients openssh-server passwd pciutils procps-ng rsync sysstat tmux
   dnf config-manager --set-enabled crb
   dnf install -y epel-release epel-next-release
   # Need report generation deps
@@ -24,6 +29,14 @@ install_sysjitter
 curl -L https://github.com/Xilinx-CNS/onload/archive/refs/tags/v8.1.1.tar.gz -o onload.tar.gz
 tar xvf onload.tar.gz && rm onload.tar.gz
 cp onload-*/scripts/* /usr/local/bin
+
+# Get & build cns-sfnettest
+curl -L "${SFNETTEST_LOCATION}" -o "${SFNETTEST_ARCHIVE}"
+mkdir -p cns-sfnettest
+tar xzf "${SFNETTEST_ARCHIVE}" -C "${SFNETTEST_NAME}" --strip-components=1 && rm "${SFNETTEST_ARCHIVE}"
+cd "${SFNETTEST_NAME}"/src
+make
+cp -v sfnt-pingpong sfnt-stream /usr/local/bin
 
 key_type_list=(rsa ecdsa ed25519)
 
