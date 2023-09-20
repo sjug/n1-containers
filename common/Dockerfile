@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi8/ubi:latest
+FROM quay.io/centos/centos:stream8
 
 WORKDIR /root/
 COPY ./ssh /root/.ssh
