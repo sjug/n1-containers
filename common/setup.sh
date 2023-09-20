@@ -6,7 +6,7 @@ SFNETTEST_NAME=cns-sfnettest
 SFNETTEST_ARCHIVE=${SFNETTEST_NAME}.tar.gz
 
 install_prereqs() {
-  dnf install -y bc dnf-plugins-core ethtool findutils gcc git gmp gmp-devel iproute iputils kernel-tools kmod libevent-devel make nc ncurses net-tools numactl openssh-clients openssh-server passwd pciutils procps-ng rsync sysstat tmux
+  dnf install -y bc dnf-plugins-core ethtool gcc git gmp-devel iproute iputils kernel-tools kmod libevent-devel make nc ncurses net-tools numactl openssh-clients openssh-server pciutils procps-ng rsync sysstat tmux
   dnf config-manager --set-enabled crb
   dnf install -y epel-release epel-next-release
   # Need report generation deps
