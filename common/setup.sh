@@ -7,8 +7,6 @@ SFNETTEST_ARCHIVE=${SFNETTEST_NAME}.tar.gz
 
 install_prereqs() {
   dnf install -y bc dnf-plugins-core ethtool gcc git gmp-devel iproute iputils kernel-tools kmod libevent-devel make nc ncurses net-tools numactl openssh-clients openssh-server pciutils procps-ng rsync sysstat tmux
-  dnf config-manager --set-enabled crb
-  dnf install -y epel-release epel-next-release
   # Need report generation deps
 }
 
@@ -58,4 +56,5 @@ echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMQCKsZWhBDdn+bjChRthRkSrL6DqJhh/TmcD8
 chmod 600 /root/.ssh/authorized_keys
 
 echo "Changing running port of ssh server."
+mkdir -p /etc/ssh/sshd_config.d
 echo "Port 2222" > /etc/ssh/sshd_config.d/10-port.conf
