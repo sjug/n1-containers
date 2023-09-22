@@ -1,4 +1,5 @@
-FROM quay.io/centos/centos:stream8
+ARG DTK_AUTO
+FROM ${DTK_AUTO} as builder
 
 WORKDIR /root/
 COPY ./ssh /root/.ssh
