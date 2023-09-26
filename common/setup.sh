@@ -4,9 +4,11 @@
 SFNETTEST_LOCATION=https://github.com/Xilinx-CNS/cns-sfnettest/archive/refs/tags/sfnettest-1.6.0-rc1.tar.gz
 SFNETTEST_NAME=cns-sfnettest
 SFNETTEST_ARCHIVE=${SFNETTEST_NAME}.tar.gz
+LINUXKI_LOCATION=https://github.com/HewlettPackard/LinuxKI/releases/download/7.7-1/linuxki-7.7-1.noarch.rpm
 
 install_prereqs() {
   dnf install -y bc bpftrace dnf-plugins-core ethtool gcc git gmp-devel iproute iputils kernel-tools kmod libevent-devel make nc ncurses net-tools numactl openssh-clients openssh-server pciutils procps-ng rsync rt-tests sysstat tmux trace-cmd vim
+  dnf install -y ${LINUXKI_LOCATION}
   # Need report generation deps
 }
 
