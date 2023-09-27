@@ -58,3 +58,6 @@ echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMQCKsZWhBDdn+bjChRthRkSrL6DqJhh/TmcD8
 chmod 600 /root/.ssh/authorized_keys
 
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
+/sbin/sshd
+echo "Appending new port to sshd_config"
+echo "Port 2222" >> /etc/ssh/sshd_config
