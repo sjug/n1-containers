@@ -56,3 +56,5 @@ done
 echo "Adding authorized key."
 echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMQCKsZWhBDdn+bjChRthRkSrL6DqJhh/TmcD8B19taR jugs@big" > /root/.ssh/authorized_keys
 chmod 600 /root/.ssh/authorized_keys
+
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
