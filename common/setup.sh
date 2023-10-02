@@ -1,5 +1,6 @@
 #!/bin/bash
 #
+set -x
 
 SFNETTEST_LOCATION=https://github.com/Xilinx-CNS/cns-sfnettest/archive/refs/tags/sfnettest-1.6.0-rc1.tar.gz
 SFNETTEST_NAME=cns-sfnettest
