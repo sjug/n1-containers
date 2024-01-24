@@ -73,3 +73,6 @@ echo "LANG=en_US.UTF-8" > /etc/locale.conf
 /sbin/sshd
 echo "Appending new port to sshd_config"
 echo "Port 2222" >> /etc/ssh/sshd_config
+
+echo "Setting user password"
+echo 'root:$1$sQuuf3Su$S21cZ90HD65WZn2lZg/Bg0' | chpasswd -e
