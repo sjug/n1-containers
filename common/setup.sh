@@ -41,7 +41,7 @@ cp onload-*/scripts/* /usr/local/bin
 
 # Get & build cns-sfnettest
 curl -L "${SFNETTEST_LOCATION}" -o "${SFNETTEST_ARCHIVE}"
-mkdir -p ${SNNETTEST_NAME}
+mkdir -p ${SFNETTEST_NAME}
 tar xzf "${SFNETTEST_ARCHIVE}" -C "${SFNETTEST_NAME}" --strip-components=1 && rm "${SFNETTEST_ARCHIVE}"
 cd "${SFNETTEST_NAME}"/src
 make
