@@ -1,0 +1,20 @@
+# .bashrc
+
+# User specific aliases and functions
+
+alias c='clear'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias ls='ls -hF --color=auto'
+alias ll='ls -l'
+alias la='ll -a'
+alias ..='cd ..'
+alias ...='cd ../..'
+
+set -o vi
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi

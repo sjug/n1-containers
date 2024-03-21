@@ -1,7 +1,30 @@
-Host localhost pstacn1-sut 10.216.91.23 192.168.10.10
+Host localhost
+    HostName 10.216.91.23
     Port 2222
     User root
 
-Host cstacn1-lts 10.216.91.35 192.168.10.11
+Host pstacn1-sut
+    HostName 10.216.91.23
+    Port 2222
+    User root
+
+Host 10.216.91.23
+    Port 2222
+    User root
+
+Host 192.168.10.10
+    Port 2222
+    User root
+
+Host cstacn1-lts
+    HostName 10.216.91.35
+    Port 22
+    User root
+
+Host 10.216.91.35
+    Port 22
+    User root
+
+Host 192.168.10.11
     Port 22
     User root

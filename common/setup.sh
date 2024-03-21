@@ -16,7 +16,7 @@ install_prereqs() {
   echo "Installing EPEL repo"
   dnf install -y ${EPEL_RPM}
   echo "Installing prereq RPMs"
-  dnf install -y bc bpftrace dnf-plugins-core ethtool gcc gettext git glibc-langpack-en gmp-devel iproute iputils kernel-tools kmod libevent-devel make nc ncurses net-tools numactl openssh-clients openssh-server pciutils procps-ng python3-bcc rsync rt-tests screen sysstat tmux trace-cmd vim
+  dnf install -y bc bpftrace dnf-plugins-core ethtool gcc gettext git glibc-langpack-en gmp-devel iproute iputils kernel-tools kmod libevent-devel make nc ncurses net-tools numactl openssh-clients openssh-server passwd pciutils procps-ng python3 python3-bcc rsync rt-tests screen sysstat tmux trace-cmd vim
   dnf install -y ${LINUXKI_LOCATION}
   # Need report generation deps
 }
