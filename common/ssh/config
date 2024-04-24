@@ -28,3 +28,6 @@ Host 10.216.91.35
 Host 192.168.10.11
     Port 22
     User root
+
+Host *
+    StrictHostKeyChecking no
