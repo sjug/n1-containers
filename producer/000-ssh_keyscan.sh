@@ -2,9 +2,8 @@
 
 # List of hostnames or IP addresses
 HOSTS=(
-    "192.168.1.1"
-    "example.com"
-    "172.16.0.1"
+    "pstacn1-sut"
+    "cstacn1-lts"
 )
 
 # File to store the collected keys
