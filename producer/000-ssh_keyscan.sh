@@ -6,13 +6,13 @@ HOSTS=(
     "cstacn1-lts"
 )
 
-# File to store the collected keys
-KNOWN_HOSTS_FILE="$HOME/.ssh/known_hosts"
-
 for host in "${HOSTS[@]}"; do
-    # Fetch the SSH public key from each host
-    ssh-keyscan -H $host >> $KNOWN_HOSTS_FILE
+    # Connect to each host to add keys to known_hosts
+    ssh $host << EOF
+    echo "Connected to $host"
+    exit
+    EOF
 done
 
-echo "SSH keys have been added to $KNOWN_HOSTS_FILE."
+echo "SSH keys have been added to ${KNOWN_HOSTS_FILE}."
 
