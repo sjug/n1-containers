@@ -9,10 +9,10 @@ HOSTS=(
 for host in "${HOSTS[@]}"; do
     # Connect to each host to add keys to known_hosts
     ssh $host << EOF
-    echo "Connected to $host"
-    exit
-    EOF
+echo "Connected to $host"
+exit
+EOF
 done
 
-echo "SSH keys have been added to ${KNOWN_HOSTS_FILE}."
+echo "SSH fingerprints have been added to known_hosts"
 
