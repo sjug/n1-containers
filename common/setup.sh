@@ -12,15 +12,17 @@ ONLOAD_ARCHIVE=${ONLOAD_NAME}.tar.gz
 
 
 install_prereqs() {
-  local EPEL_RPM=https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+  local EPEL_RPM=https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
   echo "Installing EPEL repo"
   dnf install -y ${EPEL_RPM}
   echo "Enabling CentOS PowerTools Repo"
-  dnf config-manager --set-enabled powertools
+  dnf config-manager --set-enabled crb
   echo "Installing prereq RPMs"
-  dnf install -y bc bpftrace dnf-plugins-core ethtool gcc gettext ghostscript-tools-dvipdf git glibc-langpack-en gmp-devel gnuplot iproute iputils kernel-tools kmod libevent-devel make nc ncurses net-tools numactl openssh-clients openssh-server passwd pciutils procps-ng python3 python3-bcc rsync rt-tests screen sysstat texlive texlive-dvips texlive-ec texlive-epstopdf texlive-fancyhdr texlive-metafont texlive-mdwtools texlive-multirow texlive-supertabular texlive-titlesec texlive-was texlive-xetex tmux trace-cmd vim
+  # Install new kernel packages
+  #dnf install -y ~/kernel-4161-ga/*.rpm
+  # Should have all report generation deps here
+  dnf install -y bc bpftrace dnf-plugins-core ethtool gcc gettext ghostscript-tools-dvipdf git glibc-langpack-en gmp-devel gnuplot iproute iputils kernel-tools kmod libevent-devel make nc ncurses net-tools numactl openssh-clients openssh-server passwd pciutils procps-ng python3 python3-bcc rsync realtime-tests screen sysstat texlive texlive-dvips texlive-ec texlive-epstopdf texlive-fancyhdr texlive-metafont texlive-mdwtools texlive-multirow texlive-supertabular texlive-titlesec texlive-was texlive-xetex tmux trace-cmd vim
   dnf install -y ${LINUXKI_LOCATION}
-  # Need report generation deps
 }
 
 install_sysjitter() {

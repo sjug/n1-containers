@@ -1,6 +1,7 @@
-FROM quay.io/centos/centos:stream8
+FROM quay.io/centos/centos:stream9
 
 WORKDIR /root/
+#COPY 4161-ga kernel-4161-ga
 COPY ./ssh /root/.ssh
 COPY entry.sh /root/
 COPY setup.sh /root/
