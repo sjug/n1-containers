@@ -9,6 +9,7 @@ LINUXKI_LOCATION=https://github.com/HewlettPackard/LinuxKI/releases/download/7.7
 ONLOAD_LOCATION=https://github.com/Xilinx-CNS/onload/archive/refs/tags/v8.1.2.tar.gz
 ONLOAD_NAME=onload
 ONLOAD_ARCHIVE=${ONLOAD_NAME}.tar.gz
+KERNEL_DIR=~/kernel-4161-ga/
 
 
 install_prereqs() {
@@ -20,8 +21,9 @@ install_prereqs() {
   echo "Installing prereq RPMs"
   # Install new kernel packages
   #dnf install -y ~/kernel-4161-ga/*.rpm
+  #rm -r ~/kernel-4161-ga/
   # Should have all report generation deps here
-  dnf install -y bc bpftrace dnf-plugins-core ethtool gcc gettext ghostscript-tools-dvipdf git glibc-langpack-en gmp-devel gnuplot iproute iputils kernel-tools kmod libevent-devel make nc ncurses net-tools numactl openssh-clients openssh-server passwd pciutils procps-ng python3 python3-bcc rsync realtime-tests screen sysstat texlive texlive-dvips texlive-ec texlive-epstopdf texlive-fancyhdr texlive-metafont texlive-mdwtools texlive-multirow texlive-supertabular texlive-titlesec texlive-was texlive-xetex tmux trace-cmd vim
+  dnf install -y bc bpftrace dnf-plugins-core ethtool gcc gettext ghostscript-tools-dvipdf git glibc-langpack-en gmp-devel gnuplot hostname iproute iputils kernel-tools kmod libevent-devel make nc ncurses net-tools numactl openssh-clients openssh-server passwd pciutils procps-ng python3 python3-bcc rsync realtime-tests screen sysstat texlive texlive-dvips texlive-ec texlive-epstopdf texlive-fancyhdr texlive-metafont texlive-mdwtools texlive-multirow texlive-supertabular texlive-titlesec texlive-was texlive-xetex tmux trace-cmd vim
   dnf install -y ${LINUXKI_LOCATION}
 }
 
