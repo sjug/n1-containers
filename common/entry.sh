@@ -9,7 +9,7 @@ network_tune() {
   ethtool -G ${interface} rx 4096 tx 2048
   ethtool --set-fec ${interface} encoding off
 
-  echo "sfcaffinity: using core 1 for 1 IRQ"
+  echo "sfcaffinity: using core 2 for 1 IRQ"
   sfcaffinity_config -c 2 -v auto ${interface}
 }
 
